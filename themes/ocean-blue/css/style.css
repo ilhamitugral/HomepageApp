@@ -1,10 +1,9 @@
 nav.header {
     background: #0aa0a0;
     display: grid;
-    grid-gap: 0px 10x;
+    grid-gap: 10px;
     padding: 5px 15px;
-    grid-template-areas: 'left center right';
-    grid-template-columns: 200px auto 300px;
+    grid-template-areas: 'left right';
 }
 
 nav.header a {
@@ -31,10 +30,6 @@ div.page-links {
 div.page-links h1 {
     font-size: 1rem !important;
     margin: 2px 0 0;
-}
-
-div.empty-panel {
-    grid-area: center;
 }
 
 div.user-panel {
