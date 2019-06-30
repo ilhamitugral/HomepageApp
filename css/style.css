@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    word-break: break-word;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+    height: calc(100% - 17px);
+}
+
+body {
+    background: #f9f9f9 !important;
+}
+
+.fix-margin {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    height: 100%;
+}
+
+.table {
+    display: table;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
