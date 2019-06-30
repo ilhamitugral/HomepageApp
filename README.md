@@ -24,5 +24,9 @@ Tamamen kullanıcıya yönelik özelleştirilebilir. İstediğiniz özellik iste
 ## Önemli Detaylar
 - Siteyi özelleştirebilmek için, [/conf/config.php](https://github.com/IlhamiTugral/HomepageApp/blob/master/conf/config.php) bölümünde yer alan dosyayı kendinize göre güncelleyebilirsiniz.
 
+## Dil Seçenekleri
+- Türkçe
+- İngilizce
+
 ## Canlı Demo
 http://homepageapp.hostfree.pw/
