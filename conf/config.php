@@ -13,6 +13,7 @@ $conf["site_developer"] = "İlhami TUĞRAL";
 $conf["developer_email"] = "ilhamitugral[at]gmail.com";
 $conf["contact_email"] = "ilhamitugral[at]gmail.com";
 
+// Site Ayarları
 $conf["theme"] = "ocean-blue";
 
 // API Listesi
@@ -23,26 +24,17 @@ $conf["google_api"] = "AIzaSyDOLi7etAhqihBVOIwL-TjCXEMFDxIBI4Y";
 // URL Listesi
 $conf["tcmb_currency_url"] = "http://www.tcmb.gov.tr/kurlar/today.xml";
 
-// Site Ayarları
-$conf["register_site"] = true;
-
 // İçerik Ayarları
 $conf["kelvin"] = 273.15;
 $conf["currencyList"] = ["usd", "aud", "dkk", "eur", "gbp", "chf", "sek", "cad", "nok", "sar", "jpy", "bgn", "ron", "rub", "irr", "cny", "pkr", "qar"];
+// Varsayılan kullanıcı ayarları
 $conf["settings"] = json_encode([
-    "calendar" => [
-        
-    ],
+    "calendar" => [],
     "currency" => [
         "currencyUnits" => "usd,eur,gbp"
     ],
     "news" => [
         "site" => "Hürriyet"
-    ],
-    "notes" => [
-        "created" => [
-            
-        ]
     ],
     "searchengine" => [
         "engine" => "Google"
