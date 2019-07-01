@@ -13,6 +13,7 @@ Tamamen kullanıcıya yönelik özelleştirilebilir. İstediğiniz özellik iste
 - PHP
 - JQuery
 - Bootstrap
+- FontAwesome
 
 ## Nasıl Kurabilirim?
 Öncelikle belirtmek isterim ki çok da zor bir kurulum olayı yok. Kopyala ve yapıştır mantığı ile dosyaları kullanabilirsiniz.
