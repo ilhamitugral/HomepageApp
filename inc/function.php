@@ -170,7 +170,7 @@ function RegisterSite($email = "", $password = "", $repassword) {
                 }
 
                 $token = Encrypt(rand(1, 999999));
-                $query = mysqli_query($db, "INSERT INTO users SET ip = '$ip', date = '$date', register_date = '$date', lang='".USER_LANG."', token = '$token', email = '$email', username = '$username', name = '', surname = '', password = '$password', is_active = 0, theme = 'default', design = '', search_engine = 1");
+                $query = mysqli_query($db, "INSERT INTO users SET ip = '$ip', date = '$date', register_date = '$date', lang='".USER_LANG."', token = '$token', email = '$email', username = '$username', name = '', surname = '', password = '$password', is_active = 0, theme = 'default', design = ''");
                 $error = $db->error;
                 if($query) {
                     mysqli_commit($db);
