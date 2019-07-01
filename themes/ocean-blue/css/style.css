@@ -247,11 +247,13 @@ table.calendar-table th > a, table.calendar-table th > a:hover {
     display: block;
     background: #e6e6e6;
     line-height: 1;
+    font-size: 11px;
     text-decoration: none;
     color: #949494;
     border: 1px solid #cecece;
+    border-right: none;
+    border-bottom: none;
     text-align: center;
-    height: 36px;
 }
 
 table.calendar-table td > *, table.calendar-table th > * {
