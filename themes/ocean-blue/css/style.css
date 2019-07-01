@@ -251,6 +251,7 @@ table.calendar-table th > a, table.calendar-table th > a:hover {
     color: #949494;
     border: 1px solid #cecece;
     text-align: center;
+    height: 36px;
 }
 
 table.calendar-table td > *, table.calendar-table th > * {
