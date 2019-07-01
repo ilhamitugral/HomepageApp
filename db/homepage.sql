@@ -135,7 +135,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `theme` varchar(16) NOT NULL,
   `design` text NOT NULL,
   `settings` text CHARACTER SET utf8 NOT NULL,
-  `search_engine` int(2) NOT NULL,
   PRIMARY KEY (`u_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 COMMIT;
