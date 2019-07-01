@@ -1,5 +1,5 @@
 <section class="access-panel register-panel">
-    <span class="title">Kayıt Ol</span>
+    <span class="title"><?php echo $lang["sign_in"] ?></span>
     <div class="register-result"></div>
     <div class="form-group">
         <label for="register-username"><?php echo $lang["email"]; ?>:</label>
