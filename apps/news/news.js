@@ -1,4 +1,5 @@
 $(function(){
+    const hostName = $("span.site-name").text();
     const statusArea = $("div.settings-status");
 
     saveNews = () => {
@@ -6,7 +7,7 @@ $(function(){
 
         $.ajax({
             type: "POST",
-            url: "/system.php",
+            url: hostName + "/system.php",
             data: {"page": "saveNewsSettings", "saveSettings": true, "news": source},
             success: (result) => {
                 const obj = JSON.parse(result);

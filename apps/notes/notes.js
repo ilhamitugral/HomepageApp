@@ -1,11 +1,11 @@
 $(function(){
-
+    const hostName = $("span.site-name").text();
     const notesContent = $("div.notes");
 
     AddNotesPage = (id) => {
         $.ajax({
             type: "POST",
-            url: "/apps/notes/index.php",
+            url: hostName + "/apps/notes/index.php",
             data: {"page": "AddNotes", "id": id},
             success: (result) => {
                 notesContent.html(result);
@@ -16,7 +16,7 @@ $(function(){
     ShowNotesPage = () => {
         $.ajax({
             type: "POST",
-            url: "/apps/notes/index.php",
+            url: hostName + "/apps/notes/index.php",
             data: {"page": "ShowNotes"},
             success: (result) => {
                 notesContent.html(result);
@@ -29,7 +29,7 @@ $(function(){
         let noteDescription = $("div#notes-description").html();
         $.ajax({
             type: "POST",
-            url: "/apps/notes/index.php",
+            url: hostName + "/apps/notes/index.php",
             data: {"page": "NewNotes", "title": noteTitle, "description": noteDescription},
             success: (result) => {
                 const data = JSON.parse(result);
@@ -45,7 +45,7 @@ $(function(){
         let noteDescription = $("div#notes-description").html();
         $.ajax({
             type: "POST",
-            url: "/apps/notes/index.php",
+            url: hostName + "/apps/notes/index.php",
             data: {"page": "UpdateNotes", "title": noteTitle, "description": noteDescription, "id": id},
             success: (result) => {
                 const data = JSON.parse(result);
@@ -59,7 +59,7 @@ $(function(){
     DeleteNote = (id) => {
         $.ajax({
             type: "POST",
-            url: "/apps/notes/index.php",
+            url: hostName + "/apps/notes/index.php",
             data: {"page": "DeleteNote", "id": id},
             success: (result) => {
                 const data = JSON.parse(result);

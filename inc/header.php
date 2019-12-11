@@ -19,3 +19,4 @@
     <link rel="stylesheet" href="<?php echo $conf["site_url"]; ?>/plugins/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
+    <span class="site-name d-none"><?php echo $conf["site_url"]; ?></span>

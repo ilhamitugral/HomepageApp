@@ -2,7 +2,6 @@
     <div class="page-links">
         <h1><a href="<?php echo $conf["site_url"]; ?>"><?php echo $conf["site_name"]; ?></a></h1>
     </div>
-    <div class="empty-panel"></div>
     <div class="user-panel">
         <?php if(!isset($_SESSION["login"])) {?>
             <a href="#" onclick="loginPanel(); return false;"><i class="fa fa-user"></i>&nbsp;<?php echo $lang["sign_in"]; ?></a>

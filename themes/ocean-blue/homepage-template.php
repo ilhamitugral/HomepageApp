@@ -6,11 +6,11 @@
             $query = $db->query("UPDATE users SET design = '$default' WHERE u_id = ".$user["u_id"]);
             if($query) {
                 mysqli_commit($db);
-                echo Success("Varsayılan ayarlar başarıyla atandı. Sayfa yenileniyor...");
-                header("refresh:2;  url=/");
+                echo Success($lang["default_design_updated"]);
+                header("refresh:2;  url=".$conf["site_url"]);
             }else {
                 mysqli_rollback($db);
-                echo Warning("Varsayılan tema ayarlanırken sistemsel hata oluştu. Daha sonra tekrar deneyiniz.");
+                echo Warning($lang["default_design_update_error"]);
             }
         }
     }else {
@@ -21,6 +21,7 @@
                 <span class="title"><i class="fa fa-user"></i>&nbsp;'.$lang["sign_in"].'</span>
                 <div class="login-panel">
                     <p>'.$lang["signin_description"].'</p>
+                    <p>Demo Login Info:</br>Username: admin</br>Password: Admin123.</p>
                 </div>
             </section>
             ';

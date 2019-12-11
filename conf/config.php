@@ -8,7 +8,7 @@ $conf["db_name"] = "homepage";
 
 // Site Konfigürasyonu
 $conf["site_name"] = "Homepage";
-$conf["site_url"] = "http://homepage";
+$conf["site_url"] = "http://github/HomepageApp";
 $conf["site_developer"] = "İlhami TUĞRAL";
 $conf["developer_email"] = "ilhamitugral[at]gmail.com";
 $conf["contact_email"] = "ilhamitugral[at]gmail.com";

@@ -83,21 +83,25 @@ class Notes {
     public function ShowNotes() {
         global $db, $user;
         $_lang = $this->GetLanguageFile();
-        $query = mysqli_query($db, "SELECT note_id, u_id, title FROM notes WHERE u_id = ".$user["u_id"]);
-        $count = mysqli_num_rows($query);
+        if(isset($_SESSION['login'])) {
+            $query = mysqli_query($db, "SELECT note_id, u_id, title FROM notes WHERE u_id = ".@$user["u_id"]);
+            $count = mysqli_num_rows($query);
 
-        if($count > 0) {
-            $notes = '';
-            while($row = mysqli_fetch_array($query)) {
-                $notes .= '<a href="#" onclick="AddNotesPage('.$row["note_id"].'); return false;"><i class="fa fa-file-alt"></i>&nbsp;'.$row["title"].'</a>';
+            if($count > 0) {
+                $notes = '';
+                while($row = mysqli_fetch_array($query)) {
+                    $notes .= '<a href="#" onclick="AddNotesPage('.$row["note_id"].'); return false;"><i class="fa fa-file-alt"></i>&nbsp;'.$row["title"].'</a>';
+                }
+            }else {
+                $notes = '';
             }
+            ?>
+            <a href="#" onclick="AddNotesPage(); return false;" class="add-note text-success"><i class="fa fa-plus"></i>&nbsp;<?php echo $_lang["add_note"]; ?></a>
+            <?php
+            echo $notes;
         }else {
-            $notes = '';
+            echo '<p class="notes-login">'.$_lang["note_please_login"].'</p>';
         }
-        ?>
-        <a href="#" onclick="AddNotesPage(); return false;" class="add-note text-success"><i class="fa fa-plus"></i>&nbsp;<?php echo $_lang["add_note"]; ?></a>
-        <?php
-        echo $notes;
     }
 }
 

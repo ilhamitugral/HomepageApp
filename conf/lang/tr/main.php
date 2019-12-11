@@ -104,6 +104,8 @@ $lang["calendar"] = "Takvim";
 $lang["news"] = "Haberler";
 $lang["weather"] = "Hava Durumu";
 $lang["signin_description"] = "Hemen giriş yaparak, kendine özel anasayfanı oluşturabilirsin. Ücretsiz.";
+$lang["default_design_updated"] = "Varsayılan ayarlar başarıyla atandı. Sayfa yenileniyor...";
+$lang["default_design_update_error"] = "Varsayılan tema ayarlanırken sistemsel hata oluştu. Daha sonra tekrar deneyiniz.";
 
 // News
 $lang["news_source"] = "Haber Kaynağı";

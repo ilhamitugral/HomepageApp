@@ -23,4 +23,5 @@ $lang["note_error_updating"] = "Not güncellenirken bir hata oluştu. Daha sonra
 $lang["note_deleted_success"] = "Not silme işlemi başarılı!";
 $lang["authorized_delete_note_error"] = "Bu notu silme yetkiniz bulunmamaktadır.";
 $lang["note_deleting_error"] = "Notu silerken bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.";
+$lang["note_please_login"] = "Not eklemek için lütfen giriş yapınız.";
 ?>

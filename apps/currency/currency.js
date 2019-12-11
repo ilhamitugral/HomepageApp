@@ -1,4 +1,5 @@
 $(function() {
+    const hostName = $("span.site-name").text();
     const statusArea = $("div.settings-status");
     let currencyList = $("span.currency-list").text();
     let currency = [];
@@ -11,7 +12,7 @@ $(function() {
         
         $.ajax({
             type: "POST",
-            url: "/system.php",
+            url: hostName + "/system.php",
             data: {"page": "saveCurrencySettings", "save_settings": true, "data": currency.join()},
             success: (result) => {
                 const obj = JSON.parse(result);

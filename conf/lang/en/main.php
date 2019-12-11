@@ -104,6 +104,8 @@ $lang["calendar"] = "Calendar";
 $lang["news"] = "News";
 $lang["weather"] = "Weather";
 $lang["signin_description"] = "Just log in and create your own homepage. Free.";
+$lang["default_design_updated"] = "The default settings were successfully assigned. Page reloading...";
+$lang["default_design_update_error"] = "There was an error while updating default theme. Please try again later.";
 
 // News
 $lang["news_source"] = "News Source";

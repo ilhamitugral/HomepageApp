@@ -23,4 +23,5 @@ $lang["note_error_updating"] = "There was an error while updating note. Try agai
 $lang["note_deleted_success"] = "Note deleted successful!";
 $lang["authorized_delete_note_error"] = "You are not authorized to delete this note.";
 $lang["note_deleting_error"] = "There was an error while deleting note. Plesae try again later.";
+$lang["note_please_login"] = "Please login to add notes.";
 ?>
