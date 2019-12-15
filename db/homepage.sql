@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 30, 2019 at 05:06 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- Generation Time: Dec 15, 2019 at 10:56 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `apps` (
 INSERT INTO `apps` (`app_id`, `date`, `name`, `description`, `is_active`) VALUES
 (1, 1559985992, 'Calendar', 'Takvim uygulaması', 1),
 (2, 1559985992, 'Currency', 'Döviz uygulaması', 1),
-(3, 1559985992, 'News', 'Haberler uygulaması', 1),
+(3, 1559985992, 'News', 'Haberler uygulaması', 0),
 (4, 1559985992, 'Notes', 'Not Defteri uygulaması', 1),
 (5, 1559985992, 'SearchEngine', 'Arama Motoru uygulaması', 1),
 (7, 1559985992, 'Weather', 'Hava Durumu uygulaması', 1);
@@ -88,7 +88,14 @@ CREATE TABLE IF NOT EXISTS `notes` (
   `title` varchar(256) CHARACTER SET utf8 NOT NULL,
   `description` text CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`note_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notes`
+--
+
+INSERT INTO `notes` (`note_id`, `ip`, `date`, `u_id`, `title`, `description`) VALUES
+(1, '127.0.0.1', 1576406427, 1, 'Demo Note', 'Example note. This note created by IlhamiTugral.');
 
 -- --------------------------------------------------------
 
@@ -136,7 +143,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `design` text NOT NULL,
   `settings` text CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`u_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`u_id`, `ip`, `register_date`, `date`, `token`, `lang`, `email`, `username`, `name`, `surname`, `password`, `is_active`, `theme`, `design`, `settings`) VALUES
+(1, '127.0.0.1', 1576403105, 1576403105, 'ac4f6484e231eb1bd37dc2775f8faa8c', 'en', 'admin@example.com', 'admin', 'Demo', 'Account', 'e714f5e09b26f37bb36f63f24789a3b5', 0, 'ocean-blue', '[{Calendar}{Weather}][{SearchEngine}][{Notes}{Currency}]', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
