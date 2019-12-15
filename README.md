@@ -4,7 +4,7 @@ Tamamen kullanıcıya yönelik özelleştirilebilir. İstediğiniz özellik iste
 ## Neler Mevcut?
 - Arama Motoru (Google)
 - Takvim
-- Haberler (Hürriyet)
+- Haberler (Hürriyet) ==> Devredışı (Hürriyet API kullanılamıyor)
 - Döviz (TCMB)
 - Hava Durumu (OpenWeatherMap)
 - Notlar
