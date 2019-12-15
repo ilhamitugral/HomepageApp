@@ -12,7 +12,7 @@ $(function() {
         
         $.ajax({
             type: "POST",
-            url: hostName + "/system.php",
+            url: "/system.php",
             data: {"page": "saveCurrencySettings", "save_settings": true, "data": currency.join()},
             success: (result) => {
                 const obj = JSON.parse(result);

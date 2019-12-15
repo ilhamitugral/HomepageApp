@@ -7,7 +7,7 @@ $(function(){
 
         $.ajax({
             type: "POST",
-            url: hostName + "/system.php",
+            url: "/system.php",
             data: {"page": "saveNewsSettings", "saveSettings": true, "news": source},
             success: (result) => {
                 const obj = JSON.parse(result);

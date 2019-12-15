@@ -1,12 +1,11 @@
 $(function() {
     const contentArea = $("div.access-panel");
     const hostName = $("span.site-name").text();
-    let isLogout = false;
 
     loginPanel = () => {
         $.ajax({
             type: "POST",
-            url: hostName + "/system.php",
+            url: "/system.php",
             data: {"page": "GetLoginPage"},
             success: (result) => {
                 contentArea.html(result);
@@ -17,7 +16,7 @@ $(function() {
     registerPanel = () => {
         $.ajax({
             type: "POST",
-            url: hostName + "/system.php",
+            url: "/system.php",
             data: {"page": "GetRegisterPage"},
             success: (result) => {
                 contentArea.html(result);
@@ -30,7 +29,7 @@ $(function() {
         let password = $("input#login-password").val();
         $.ajax({
             type: "POST",
-            url: hostName + "/system.php",
+            url: "/system.php",
             data: {"username": username, "password": password, "page": "TryLogin"},
             success: (result) => {
                 const obj = JSON.parse(result);
@@ -51,7 +50,7 @@ $(function() {
 
         $.ajax({
             type: "POST",
-            url: hostName + "/system.php",
+            url: "/system.php",
             data: {"username": username, "password": password, "repassword": repassword, "page": "TryRegister"},
             success: (result) => {
                 const obj = JSON.parse(result);
@@ -68,7 +67,7 @@ $(function() {
     logout = () => {
         $.ajax({
             type: "POST",
-            url: hostName + "/system.php",
+            url: "/system.php",
             data: {"page": "LogoutSite"},
             success: (result) => {
                 const obj = JSON.parse(result);
