@@ -21,7 +21,7 @@
                 <span class="title"><i class="fa fa-user"></i>&nbsp;'.$lang["sign_in"].'</span>
                 <div class="login-panel">
                     <p>'.$lang["signin_description"].'</p>
-                    <p>Demo Login Info:</br>Username: admin</br>Password: Admin123.</p>
+                    <p>Demo Login Info:</br>Username: admin@example.com</br>Password: Admin123.</p>
                 </div>
             </section>
             ';
