@@ -5,8 +5,9 @@ function DB() {
     $db = mysqli_connect($conf["db_hostname"], $conf["db_username"], $conf["db_password"], $conf["db_name"]);
 
     // Bağlantıyı Kuralım.
-    if (mysqli_connect_errno()) {
+    if (mysqli_connect_errno($db)) {
         echo "Veritabanı bağlantısı başarısız.";
+        exit();
     }else {
         mysqli_query($db, "SET NAMES 'utf8'");
         return $db;
