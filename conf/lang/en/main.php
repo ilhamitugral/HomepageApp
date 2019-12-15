@@ -3,7 +3,7 @@
 /*
 * Language Files: English
 * @author: Ilhami Tugral <ilhamitugral@gmail.com>
-* @date: 21/05/19
+* @date: 15/12/19
 * @copyright: Ilhami Tugral
 */
 
@@ -97,6 +97,7 @@ $lang["apps_info"] = "Apps Info";
 $lang["settings_not_available"] = "This settings not available now.";
 $lang["return_back"] = "Return Back";
 $lang["invalid_operation"] = "Invalid Operation.";
+$lang["account_cannot_changeable"] = "This account cannot changeable. Because demo account.";
 
 // Other
 $lang["searchengine"] = "Search Engine";

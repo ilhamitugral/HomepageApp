@@ -96,129 +96,140 @@ switch($page) {
         $language = @Post("language");
         $theme = @Post("theme");
 
-        $renew_pass = true;
-        if($old_pass == "" || $new_pass == "" || $re_pass == "") {
-            $old_pass = "";
-            $new_pass = "";
-            $re_pass = "";
-            $renew_pass = false;
-        }
 
-        if($username == "") {
-            $data = [
-                "status" => "error",
-                "message" => $lang["username_cannot_blank"]
-            ];
-        }elseif($email == "") {
-            $data = [
-                "status" => "error",
-                "message" => $lang["email_cannot_blank"],
-            ];
-        }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $data = [
-                "status" => "error",
-                "message" => $lang["invalid_email"]
-            ];
-        }else {
-            $pass_query = "";
-            if($renew_pass) {
-                $uppercase = preg_match('@[A-Z]@', $new_pass);
-                $lowercase = preg_match('@[a-z]@', $new_pass);
-                $number = preg_match('@[0-9]@', $new_pass);
-
-                if(!$uppercase || !$lowercase || !$number || strlen($new_pass) < 8) {
-                    $data = [
-                        "status" => "error",
-                        "message" => $lang["invalid_password"]
-                    ];
-                    
-                    echo json_encode($data);
-                    exit();
-                }elseif(!$new_pass == $old_pass) {
-                    $data = [
-                        "status" => "error",
-                        "message" => $lang["passwords_not_match"]
-                    ];
-
-                    echo json_encode($data);
-                    exit();
-                }else {
-                    $password = Encrypt($old_pass);
-                    $query = mysqli_query($db, "SELECT u_id, password FROM users WHERE password = '$password' && u_id = ".$user["u_id"]);
-                    $count = mysqli_num_rows($query);
-
-                    if($count > 0) {
-                        $password = Encrypt($new_pass);
-                        $pass_query = ", password = '$password'";
-                    }else {
-                        $data = [
-                            "status" => "error",
-                            "message" => $lang["password_wrong"]
-                        ];
-                        echo json_encode($data);
-                        exit();
-                    }
-                }
+        if(!$user["u_id"] == 1) {
+            $renew_pass = true;
+            if($old_pass == "" || $new_pass == "" || $re_pass == "") {
+                $old_pass = "";
+                $new_pass = "";
+                $re_pass = "";
+                $renew_pass = false;
             }
 
-            // Kullanıcı Adı kontrolü
-            $query = mysqli_query($db, "SELECT u_id, username FROM users WHERE username = '$username' && u_id <> ".$user["u_id"]);
-            $count = mysqli_num_rows($query);
-
-            if($count > 0) {
+            if($username == "") {
                 $data = [
                     "status" => "error",
-                    "message" => $lang["username_using_by_someone"]
+                    "message" => $lang["username_cannot_blank"]
                 ];
-                echo json_encode($data);
-                exit();
-            }
-
-            // Dil Kontrolü
-            if($language == '' || is_numeric($language)) {
-                $language = 'en';
+            }elseif($email == "") {
+                $data = [
+                    "status" => "error",
+                    "message" => $lang["email_cannot_blank"],
+                ];
+            }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $data = [
+                    "status" => "error",
+                    "message" => $lang["invalid_email"]
+                ];
             }else {
-                $query = mysqli_query($db, "SELECT code, is_active FROM language WHERE code = '$language' && is_active = 1");
+                $pass_query = "";
+                if($renew_pass) {
+                    $uppercase = preg_match('@[A-Z]@', $new_pass);
+                    $lowercase = preg_match('@[a-z]@', $new_pass);
+                    $number = preg_match('@[0-9]@', $new_pass);
+
+                    if(!$uppercase || !$lowercase || !$number || strlen($new_pass) < 8) {
+                        $data = [
+                            "status" => "error",
+                            "message" => $lang["invalid_password"]
+                        ];
+                        
+                        echo json_encode($data);
+                        exit();
+                    }elseif(!$new_pass == $old_pass) {
+                        $data = [
+                            "status" => "error",
+                            "message" => $lang["passwords_not_match"]
+                        ];
+
+                        echo json_encode($data);
+                        exit();
+                    }else {
+                        $password = Encrypt($old_pass);
+                        $query = mysqli_query($db, "SELECT u_id, password FROM users WHERE password = '$password' && u_id = ".$user["u_id"]);
+                        $count = mysqli_num_rows($query);
+
+                        if($count > 0) {
+                            $password = Encrypt($new_pass);
+                            $pass_query = ", password = '$password'";
+                        }else {
+                            $data = [
+                                "status" => "error",
+                                "message" => $lang["password_wrong"]
+                            ];
+                            echo json_encode($data);
+                            exit();
+                        }
+                    }
+                }
+
+                // Kullanıcı Adı kontrolü
+                $query = mysqli_query($db, "SELECT u_id, username FROM users WHERE username = '$username' && u_id <> ".$user["u_id"]);
                 $count = mysqli_num_rows($query);
 
-                if($count == 0) {
-                    $language = "en";
+                if($count > 0) {
+                    $data = [
+                        "status" => "error",
+                        "message" => $lang["username_using_by_someone"]
+                    ];
+                    echo json_encode($data);
+                    exit();
+                }
+
+                // Dil Kontrolü
+                if($language == '' || is_numeric($language)) {
+                    $language = 'en';
+                }else {
+                    $query = mysqli_query($db, "SELECT code, is_active FROM language WHERE code = '$language' && is_active = 1");
+                    $count = mysqli_num_rows($query);
+
+                    if($count == 0) {
+                        $language = "en";
+                    }
+                }
+
+                // Tema Kontrolü
+                if($theme == '' || is_numeric($theme)) {
+                    $theme = 'default';
+                }else {
+                    $query = mysqli_query($db, "SELECT theme, is_active FROM themes WHERE theme = '$theme' && is_active = 1");
+                    $count = mysqli_num_rows($query);
+
+                    if($count == 0) {
+                        $theme = $conf["theme"];
+                    }
+                }
+
+                $query = mysqli_query($db, "UPDATE users SET username = '$username', name = '$name', surname = '$surname', email = '$email', lang = '$language', theme = '$theme'$pass_query WHERE u_id = ".$user["u_id"]);
+                $error = $db->error;
+                if($query) {
+                    mysqli_commit($db);
+                    $data = [
+                        "status" => "success",
+                        "message" => $lang["settings_updated"]
+                    ];
+                }else {
+                    mysqli_rollback($db);
+                    $data = [
+                        "status" => "warning",
+                        "message" => $lang["settings_update_error"],
+                        "code" => $error
+                    ];
                 }
             }
-
-            // Tema Kontrolü
-            if($theme == '' || is_numeric($theme)) {
-                $theme = 'default';
-            }else {
-                $query = mysqli_query($db, "SELECT theme, is_active FROM themes WHERE theme = '$theme' && is_active = 1");
-                $count = mysqli_num_rows($query);
-
-                if($count == 0) {
-                    $theme = $conf["theme"];
-                }
-            }
-
-            $query = mysqli_query($db, "UPDATE users SET username = '$username', name = '$name', surname = '$surname', email = '$email', lang = '$language', theme = '$theme'$pass_query WHERE u_id = ".$user["u_id"]);
-            $error = $db->error;
-            if($query) {
-                mysqli_commit($db);
-                $data = [
-                    "status" => "success",
-                    "message" => $lang["settings_updated"]
-                ];
-            }else {
-                mysqli_rollback($db);
-                $data = [
-                    "status" => "warning",
-                    "message" => $lang["settings_update_error"],
-                    "code" => $error
-                ];
-            }
+            echo json_encode($data);
+        }else {
+            $data = [
+                "status" => "error",
+                "message" => $lang["account_cannot_changeable"],
+            ];
+            echo json_encode($data);
         }
-        echo json_encode($data);
     break;
 
     case "GetSettingsPage":
+        if($user["u_id"] == 1)
+            echo Info($lang["account_cannot_changeable"]);
         ?>
         <div class="row">
             <div class="col-4">

@@ -3,7 +3,7 @@
 /*
 * Ana Dil Dosyası: Türkçe
 * @author: Ilhami Tugral <ilhamitugral@gmail.com>
-* @date: 06/06/19
+* @date: 15/12/19
 * @copyright: Ilhami Tugral
 */
 
@@ -97,6 +97,7 @@ $lang["apps_info"] = "Uygulama Ayarları";
 $lang["settings_not_available"] = "Bu ayar şuan için temin edilemiyor.";
 $lang["return_back"] = "Geri Dön";
 $lang["invalid_operation"] = "Geçersiz işlem.";
+$lang["account_cannot_changeable"] = "Bu hesap değiştirilemez. Çünkü deneme hesabıdır.";
 
 // Other
 $lang["searchengine"] = "Arama Motoru";

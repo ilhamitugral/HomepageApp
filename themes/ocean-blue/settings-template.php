@@ -14,9 +14,7 @@
                     <h2 class="settings-title"><?php echo $lang["user_settings"]; ?></h2>
                     <hr>
                     <div class="settings-status"></div>
-                    <div class="settings-content-area">
-                        
-                    </div>
+                    <div class="settings-content-area"></div>
                 </section>
             </section>
         </div>
