@@ -1,4 +1,13 @@
 <?php
+
+/*
+@author: IlhamiTugral <ilhamitugral@gmail.com>
+@date: 15/12/19
+
+Bu dosya sabit bir dosya olup, seçilen temaya göre dosyaları getirecektir.
+*/
+
+
 require_once(__DIR__.'/inc/init.php');
 
 define('SITE_TITLE', $conf["site_name"]);
