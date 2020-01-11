@@ -1,10 +1,10 @@
 <?php
 
 // Veritabanı Konfigürasyonu
-$conf["db_hostname"] = "localhost";
-$conf["db_username"] = "root";
-$conf["db_password"] = "";
-$conf["db_name"] = "homepage";
+$conf["db_hostname"] = "localhost";     // Veritabanı Sunucu adı
+$conf["db_username"] = "root";          // Veritabanı Kullanıcı adı
+$conf["db_password"] = "";              // Veritabanı Şifresi
+$conf["db_name"] = "homepage";          // Veritabanı Adı
 
 // Site Konfigürasyonu
 $conf["site_name"] = "Homepage";
@@ -27,6 +27,7 @@ $conf["tcmb_currency_url"] = "http://www.tcmb.gov.tr/kurlar/today.xml";
 // İçerik Ayarları
 $conf["kelvin"] = 273.15;
 $conf["currencyList"] = ["usd", "aud", "dkk", "eur", "gbp", "chf", "sek", "cad", "nok", "sar", "jpy", "bgn", "ron", "rub", "irr", "cny", "pkr", "qar"];
+
 // Varsayılan kullanıcı ayarları
 $conf["settings"] = json_encode([
     "calendar" => [],
