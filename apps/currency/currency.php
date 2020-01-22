@@ -45,7 +45,7 @@ class Currency {
                 }
             }
             $checkbox .= '
-            <div class="col-3">
+            <div class="col-3 col-xs-6">
                 <label for="currency_'.$this->currencyList[$i].'"><input type="checkbox" name="currency_'.$this->currencyList[$i].'" id="currency_'.$this->currencyList[$i].'" '.$add.'/>&nbsp;'.$_lang[$this->currencyList[$i]."_text"].'</label>
             </div>';
         }
