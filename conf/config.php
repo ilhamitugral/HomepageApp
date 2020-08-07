@@ -22,7 +22,7 @@ $conf["weather_api"] = "da9c522de43326cc1186ab964757792f";
 $conf["google_api"] = "AIzaSyDOLi7etAhqihBVOIwL-TjCXEMFDxIBI4Y";
 
 // URL Listesi
-$conf["tcmb_currency_url"] = "http://www.tcmb.gov.tr/kurlar/today.xml";
+$conf["tcmb_currency_url"] = "https://www.tcmb.gov.tr/kurlar/today.xml";
 
 // İçerik Ayarları
 $conf["kelvin"] = 273.15;
